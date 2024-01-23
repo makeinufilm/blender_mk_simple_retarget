@@ -1,12 +1,22 @@
-**1.first**
-
+# 1.first:
+概要：
 ※このアドオンは公開したばかりで、あらゆる状況のリグに対応出来ている訳ではありません、なるべく対応はしたいですが、骨の向きや構成によって正しいリターゲットが出来るかは保証できません
 　もし対応を依頼したい場合は（時間が掛かるかもしれませんが）oshigoto@makeinufilm.comまでご連絡下さい（法人様の場合はプロジェクトの規模によっては有償対応の可能性があります）
- 　環境と操作手順やリグの構成によってはエラーが出るかもしれませんので諸々の動作を保証できないので、予めご了承下さい（操作手順とエラー文を送ってもらえれば出来る限り対応します）
+ 　
+<br><br>  環境と操作手順やリグの構成によってはエラーが出るかもしれませんので諸々の動作を保証できないので、予めご了承下さい（操作手順とエラー文を送ってもらえれば出来る限り対応します）
 ※※ボーンレイヤ、ボーンコレクションのAPIがblender3.6とblender4.0で異なる為4.0以降の対応はblender4.3LTSがリリースされてから始める予定です
 動作検証はblender3.6.2で行っています
 
+![image](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/1a9aeebd-f8ad-4b23-a2b8-584625388d8b)
+※画像はオリジナルキャラの千代とMoMaskでtext to motionを行ったbvhデータです
+# 2.UI description:
+![bone_retarget_description_JP](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/18bd42b6-112e-4824-b4c9-d132726f3606)
+![bone_retarget_description_EN](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/faefc9f3-efe2-49a2-8313-2749b594a71c)
 
+
+
+
+## AIによるおまけのblender登録方法
 
 こんにちは、Blenderのユーザーの皆様。私たちは、あなたがBlenderでのアニメーション作業をより簡単に、より効率的に行えるように開発された新しいアドオンをご紹介します。その名も「MK Simple Retarget」です。
 
@@ -19,12 +29,15 @@ Blenderを開き、上部メニューの「Edit」をクリックします。
 開いたウィンドウの左側にあるメニューから「Add-ons」をクリックします。
 右上にある「Install…」ボタンをクリックします。
 ダウンロードした「mk_simple_retarget_00.py」を選択し、「Install Add-on」ボタンをクリックします。
-インストールしたアドオンがリストに表示されるので、チェックボックスをオンにして有効化します。
+インストールしたアドオンがリストに表示されるので、チェックボックスをオンにして有効化します。<br>
+![image](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/80f670bf-90dc-4b33-a8b6-78212449e970)
+
 以上で、「MK Simple Retarget」のインストールと有効化が完了しました。これで、あなたもアニメーションリターゲットの力を存分に利用することができます。ぜひ、このアドオンを使って、あなたのアニメーション作成をより楽しく、より効率的にしてみてください。
 
 それでは、ハッピーブレンディング！
 
-上記の挨拶はbingAIが書いています、ハッピーブレンディングとは
+上記の挨拶はbingAIが書いています、ハッピーブレンディングとはなんなんでしょう
+
 
 This add-on has just been released and is not compatible with all rigs in all situations. We will do our best, but we cannot guarantee that it will retarget correctly depending on the orientation and configuration of the bones.
 　If you would like to request a response (although it may take some time), please contact us at oshigoto@makeinufilm.com (for corporate clients, depending on the size of the project, there may be a possibility of a paid response).
