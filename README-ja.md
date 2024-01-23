@@ -1,3 +1,5 @@
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/181dde7c-1697-43a9-a993-6041fa96409b" width="256"><br>
+blenderを日本語で使用してる人は新規データのチェックを外して利用する事をお勧めします（今後のik対応で安定しない可能性があります）
 # 1.first:
 概要：<br>
 ※このアドオンは公開したばかりで、あらゆる状況のリグに対応出来ている訳ではありません、なるべく対応はします<br>
