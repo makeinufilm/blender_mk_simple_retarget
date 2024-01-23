@@ -38,6 +38,11 @@
 
 <img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/e9b169d3-b6ab-4614-a87d-e1721102f00a" width="768"><br>
 登録しているターゲットボーンのみにアニメーションの焼き付けを行います、完了です
+#### ４．IK_offset(Features not completed)
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/27eff023-ad47-43ea-8b6c-91581a59c4d3" width="768"><br>
+4.3LTSが来たら多分……やります……。
+色々整理されてませんがとりあえずRootの位置と足と手の位置調整(_OFST_)が行える機能……ですが、現時点では不安定です
+<br>Bake_AnimationをするとIKではなく登録したFK（デフォーム）ボーンのみBakeが行われて、IKに関わる骨は削除されます
 
 ## Operations that lead to errors:
 操作によってはエラーが出ます<br>
@@ -46,15 +51,10 @@
 ３．コントロールリグが無い場合で捻りジョイントtwistジョイントの仕組みがある場合等もIK offsetは非推奨です（今後対応します）<br>
 ４．FBXをそのままインポートするとスケール0.01になる事が多いです、やむを得ず0.01のままでリターゲットを行う場合は：Apply：(適用)のデルタスケールを適用を行ってください<br>
 　　※但しこの場合でも座標位置が飛ぶ事があるので、**出来れば等倍設定で**使用してください<br>
-<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/8ae4db7b-8d6b-4cc9-92c5-a8adab491f59" width="768"><br>
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/8ae4db7b-8d6b-4cc9-92c5-a8adab491f59" width="384"><br>
 <br>※↑は他DCCで書き出されたFBXをインポートする際の参考、スケールは100、Automatic Bone Orientationにチェック<br>
 　インポート完了後手動で読み込まれたFBXのオブジェクトを全選択してスケールを一致させて：Apply：(適用) All Transoform で正規化してください<br>
 
- #### ４．IK_offset(Features not completed)
-<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/27eff023-ad47-43ea-8b6c-91581a59c4d3" width="768"><br>
-4.3LTSが来たら多分……やります……。
-色々整理されてませんがとりあえずRootの位置と足と手の位置調整(_OFST_)が行える機能……ですが、現時点では不安定です
-<br>Bake_AnimationをするとIKではなく登録したFK（デフォーム）ボーンのみBakeが行われて、IKに関わる骨は削除されます
 
 ## AIによるおまけのblender登録方法
 
