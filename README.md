@@ -1,20 +1,56 @@
 # 1.first:
-概要：
-※このアドオンは公開したばかりで、あらゆる状況のリグに対応出来ている訳ではありません、なるべく対応はしたいですが、骨の向きや構成によって正しいリターゲットが出来るかは保証できません
+概要：<br>
+※このアドオンは公開したばかりで、あらゆる状況のリグに対応出来ている訳ではありません、なるべく対応はします<br>
+但し、骨の向きや構成によって正しいリターゲットが出来るかは保証できません
 　もし対応を依頼したい場合は（時間が掛かるかもしれませんが）oshigoto@makeinufilm.comまでご連絡下さい（法人様の場合はプロジェクトの規模によっては有償対応の可能性があります）
  　
-<br><br>  環境と操作手順やリグの構成によってはエラーが出るかもしれませんので諸々の動作を保証できないので、予めご了承下さい（操作手順とエラー文を送ってもらえれば出来る限り対応します）
-※※ボーンレイヤ、ボーンコレクションのAPIがblender3.6とblender4.0で異なる為4.0以降の対応はblender4.3LTSがリリースされてから始める予定です
-動作検証はblender3.6.2で行っています
+<br><br>  環境と操作手順やリグの構成によってはエラーが出ます、諸々の動作を保証できないので<br>
+予めご了承下さい（操作手順とエラー文を送ってもらえれば出来る限り対応します）
+<br>※※ボーンレイヤ、ボーンコレクションのAPIがblender3.6とblender4.0で異なる為4.0以降の対応はblender4.3LTSがリリースされてから始める予定です
+動作検証はblender3.6.2で行っています<br>
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/1a9aeebd-f8ad-4b23-a2b8-584625388d8b" width="768">
 
-![image](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/1a9aeebd-f8ad-4b23-a2b8-584625388d8b)
 ※画像はオリジナルキャラの千代とMoMaskでtext to motionを行ったbvhデータです
 # 2.UI description:
-![bone_retarget_description_JP](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/18bd42b6-112e-4824-b4c9-d132726f3606)
-![bone_retarget_description_EN](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/faefc9f3-efe2-49a2-8313-2749b594a71c)
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/18bd42b6-112e-4824-b4c9-d132726f3606" width="768">
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/faefc9f3-efe2-49a2-8313-2749b594a71c" width="768">
 
+# 3.process description:
 
+設定例：<br>
+#### １．諸々アーマチュアとボーンの名前の登録
+<br>　終わったらUIが画像みたいな感じになると思います
+<br>　*arms_groupとlegs_groupが一部空白になっていますがmomaskBVHだと手首がZUP方向に向いているので<br>空白にしています（手首部分が空白の場合はX軸に向くように設定しています）
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/d155d704-df2c-4f41-8166-ae14438b0cb3" width="768"><br>
+#### ２．retarget_setting(FK_only)
+　　押すとコンストレイントが割り当てられ同時にコンストレイントの影響値がRetargetOffsetPanelに表示されます<br><br>
+　　**Z方向に飛んでしまった場合はOffsetのチェックボックスを外してください**<br>
+　　root_offsetZは縦方向の補正、root_offsetXYは横方向の補正です、適宜調整してください<br>
+<br>
+　　他、骨の名前とInfluenceが表示されます、回転を反映したくない所を適宜調整（例：首と頭のブレを抑える為にNeckとHeadをオフ）<br>
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/3bd9cda6-02be-4161-9a57-ccc2e2e21a11" width="768">
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/790326c8-951d-4c60-861a-7b5415881612" width="768"><br>
+#### ２－clear_setting
+押すと元の設定に戻ります
+　※"MK_"という接頭辞が付いた骨、コンストレイントを削除するので、もし同名の骨がある場合は予めリネームをしてください
+ 
+#### ３．Bake_Animation
 
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/e9b169d3-b6ab-4614-a87d-e1721102f00a" width="768"><br>
+登録しているターゲットボーンのみにアニメーションの焼き付けを行います、完了です
+
+## Operations that lead to errors:
+操作によってはエラーが出ます<br>
+１．ソースボーンとターゲットボーンはハイド（非表示）[ショートカット：H]をしないでください<br>
+２．コントロールリグがある場合はuse IK offsetにチェックを入れないでください<br>
+３．コントロールリグが無い場合で捻りジョイントtwistジョイントの仕組みがある場合等もIK offsetは非推奨です（今後対応します）
+４．FBXをそのままインポートするとスケール0.01になる事が多いです、やむを得ず0.01のままでリターゲットを行う場合は：Apply：(適用)のデルタスケールを適用を行ってください<br>
+　　※但しこの場合でも座標位置が飛ぶ事があるので、**出来れば等倍設定で**使用してください<br>
+![image](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/8ae4db7b-8d6b-4cc9-92c5-a8adab491f59)
+<br>※↑は他DCCで書き出されたFBXをインポートする際の参考、スケールは100、Automatic Bone Orientationにチェック<br>
+　インポート完了後手動で読み込まれたFBXのオブジェクトを全選択してスケールを一致させて：Apply：(適用) All Transoform で正規化してください<br>
+
+ 
 
 ## AIによるおまけのblender登録方法
 
