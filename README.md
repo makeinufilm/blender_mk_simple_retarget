@@ -1,5 +1,4 @@
 # 1.first:
-概要：
 Overview:<br>
 This add-on has just been released and is not yet compatible with all rigs in all situations, but we will do our best to make it compatible.
 <br>
