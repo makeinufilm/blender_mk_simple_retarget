@@ -512,7 +512,9 @@ class MK_OT_Retarget(bpy.types.Operator):
     bl_idname = "mkn.retarget"
     bl_label = "retarget_setting(FK only)"
     def execute(self, context):
-        bpy.ops.object.mode_set(mode = "OBJECT") 
+        bpy.ops.object.mode_set(mode = "OBJECT")
+        bpy.ops.object.mode_set(mode = "POSE")        
+        bpy.ops.object.mode_set(mode = "OBJECT")   
         #print("Selected file:", self.filepath)
         armaturetemp = bpy.context.scene.MK_ArmatureTemp
         target_armature = armaturetemp.target
@@ -580,6 +582,9 @@ class MK_OT_IKRetarget(bpy.types.Operator):
         armaturetemp = bpy.context.scene.MK_ArmatureTemp
         target_armature = armaturetemp.target
         bpy.context.view_layer.objects.active = target_armature
+        bpy.ops.object.mode_set(mode = "OBJECT")           
+        bpy.ops.object.mode_set(mode = "POSE")        
+        bpy.ops.object.mode_set(mode = "OBJECT")   
         if not target_armature.data.bones.get("MK_BASE_CTRLGRP"):
 
             source_armature = armaturetemp.source
@@ -640,6 +645,9 @@ class MK_OT_Clear(bpy.types.Operator):
         target_armature = armaturetemp.target
         source_armature = armaturetemp.source
         bpy.context.view_layer.objects.active = target_armature
+        bpy.ops.object.mode_set(mode = "OBJECT")           
+        bpy.ops.object.mode_set(mode = "POSE")        
+        bpy.ops.object.mode_set(mode = "OBJECT")
         # 制約を削除
         remove_constraints(target_armature)
 
@@ -673,7 +681,9 @@ class MK_OT_Bake(bpy.types.Operator):
         bonetemp = bpy.context.scene.MK_BoneTemp
         bpy.ops.object.mode_set(mode = "OBJECT")
         bpy.ops.object.mode_set(mode = "POSE")
- 
+        bpy.ops.object.mode_set(mode = "OBJECT")           
+        bpy.ops.object.mode_set(mode = "POSE")        
+
         for pb in target_armature.pose.bones:
             pb.bone.select = False       
         target_bone_names = [bonetemp.ta_hips,bonetemp.ta_spine,bonetemp.ta_spine1,bonetemp.ta_chest,bonetemp.ta_neck,bonetemp.ta_head,
