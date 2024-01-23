@@ -70,7 +70,7 @@ Blenderを開き、上部メニューの「Edit」をクリックします。
 右上にある「Install…」ボタンをクリックします。
 ダウンロードした「mk_simple_retarget_00.py」を選択し、「Install Add-on」ボタンをクリックします。
 インストールしたアドオンがリストに表示されるので、チェックボックスをオンにして有効化します。<br>
-![image](https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/80f670bf-90dc-4b33-a8b6-78212449e970)
+<img src="https://github.com/makeinufilm/mk_simple_retarget_addon/assets/157425559/80f670bf-90dc-4b33-a8b6-78212449e970" width="768"><br>
 
 以上で、「MK Simple Retarget」のインストールと有効化が完了しました。これで、あなたもアニメーションリターゲットの力を存分に利用することができます。ぜひ、このアドオンを使って、あなたのアニメーション作成をより楽しく、より効率的にしてみてください。
 
