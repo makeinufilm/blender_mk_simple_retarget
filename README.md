@@ -1,5 +1,6 @@
-https://github.com/makeinufilm/mk_simple_retarget_addon/blob/main/README-ja.md
-日本語版チュートリアルは上記です
+
+[日本語版 README はこちら](https://github.com/makeinufilm/mk_simple_retarget_addon/blob/main/README-ja.md)
+
 # 1.first:
 Overview:<br>
 This add-on has just been released and is not yet compatible with all rigs in all situations, but we will do our best to make it compatible.
