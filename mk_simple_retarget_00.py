@@ -1074,6 +1074,98 @@ class jsonImport(bpy.types.Operator,ExportHelper):
         self.filepath = "mnr_bonemap.json"  
         context.window_manager.fileselect_add(self)
         return {'RUNNING_MODAL'}
+
+class MK_SourceNamespace(bpy.types.Operator):
+    bl_idname = "mkn.so_namespace"
+    bl_label = "add_source"
+
+    def execute(self, context):
+        bonetemp = bpy.context.scene.MK_BoneTemp
+        fingtemp = bpy.context.scene.MK_FingBoneTemp
+        bone_names = ["so_hips", "so_spine", "so_spine1", "so_chest", "so_neck", "so_head",
+            "so_shoulder_l", "so_uparm_l", "so_forearm_l", "so_hand_l",
+            "so_shoulder_r", "so_uparm_r", "so_forearm_r", "so_hand_r",
+            "so_upleg_l", "so_leg_l", "so_ankle_l", "so_toes_l",
+            "so_upleg_r", "so_leg_r", "so_ankle_r", "so_toes_r"]
+            
+        bones = [bonetemp.so_hips, bonetemp.so_spine, bonetemp.so_spine1, bonetemp.so_chest, bonetemp.so_neck, bonetemp.so_head,
+            bonetemp.so_shoulder_l, bonetemp.so_uparm_l, bonetemp.so_forearm_l, bonetemp.so_hand_l,
+            bonetemp.so_shoulder_r, bonetemp.so_uparm_r, bonetemp.so_forearm_r, bonetemp.so_hand_r,
+            bonetemp.so_upleg_l, bonetemp.so_leg_l, bonetemp.so_ankle_l, bonetemp.so_toes_l,
+            bonetemp.so_upleg_r, bonetemp.so_leg_r, bonetemp.so_ankle_r, bonetemp.so_toes_r]
+
+        namespace = bonetemp.name_space
+        for bone_name,bonestr in zip(bone_names,bones):
+
+            if bonestr != "":
+                name = namespace + bonestr
+                setattr(bonetemp, bone_name, name)
+                
+        bone_names = ["so_index_a_l","so_index_b_l","so_index_c_l","so_middle_a_l","so_middle_b_l","so_middle_c_l","so_ring_a_l","so_ring_b_l","so_ring_c_l",
+            "so_pinky_a_l","so_pinky_b_l","so_pinky_c_l","so_thumb_a_l","so_thumb_b_l","so_thumb_c_l",
+            "so_index_a_r","so_index_b_r","so_index_c_r","so_middle_a_r","so_middle_b_r","so_middle_c_r","so_ring_a_r","so_ring_b_r","so_ring_c_r",
+            "so_pinky_a_r","so_pinky_b_r","so_pinky_c_r","so_thumb_a_r","so_thumb_b_r","so_thumb_c_r"]
+        bones = [fingtemp.so_index_a_l,fingtemp.so_index_b_l,fingtemp.so_index_c_l,fingtemp.so_middle_a_l,fingtemp.so_middle_b_l,fingtemp.so_middle_c_l,fingtemp.so_ring_a_l,fingtemp.so_ring_b_l,fingtemp.so_ring_c_l,
+            fingtemp.so_pinky_a_l,fingtemp.so_pinky_b_l,fingtemp.so_pinky_c_l,fingtemp.so_thumb_a_l,fingtemp.so_thumb_b_l,fingtemp.so_thumb_c_l,
+            fingtemp.so_index_a_r,fingtemp.so_index_b_r,fingtemp.so_index_c_r,fingtemp.so_middle_a_r,fingtemp.so_middle_b_r,fingtemp.so_middle_c_r,fingtemp.so_ring_a_r,fingtemp.so_ring_b_r,fingtemp.so_ring_c_r,
+            fingtemp.so_pinky_a_r,fingtemp.so_pinky_b_r,fingtemp.so_pinky_c_r,fingtemp.so_thumb_a_r,fingtemp.so_thumb_b_r,fingtemp.so_thumb_c_r]
+
+        for bone_name,bonestr in zip(bone_names,bones):
+
+            if bonestr != "":
+                name = namespace + bonestr
+                setattr(fingtemp, bone_name, name)
+
+        return {'FINISHED'}
+
+class MK_TargetNamespace(bpy.types.Operator):
+    bl_idname = "mkn.ta_namespace"
+    bl_label = "add_target"
+
+    def execute(self, context):
+        bonetemp = bpy.context.scene.MK_BoneTemp
+        fingtemp = bpy.context.scene.MK_FingBoneTemp
+
+        bone_names = ["ta_hips", "ta_spine", "ta_spine1", "ta_chest", "ta_neck", "ta_head",
+            "ta_shoulder_l", "ta_uparm_l", "ta_forearm_l", "ta_hand_l",
+            "ta_shoulder_r", "ta_uparm_r", "ta_forearm_r", "ta_hand_r",
+            "ta_upleg_l", "ta_leg_l", "ta_ankle_l", "ta_toes_l",
+            "ta_upleg_r", "ta_leg_r", "ta_ankle_r", "ta_toes_r"]
+
+        bones = [bonetemp.ta_hips, bonetemp.ta_spine, bonetemp.ta_spine1, bonetemp.ta_chest, bonetemp.ta_neck, bonetemp.ta_head,
+            bonetemp.ta_shoulder_l, bonetemp.ta_uparm_l, bonetemp.ta_forearm_l, bonetemp.ta_hand_l,
+            bonetemp.ta_shoulder_r, bonetemp.ta_uparm_r, bonetemp.ta_forearm_r, bonetemp.ta_hand_r,
+            bonetemp.ta_upleg_l, bonetemp.ta_leg_l, bonetemp.ta_ankle_l, bonetemp.ta_toes_l,
+            bonetemp.ta_upleg_r, bonetemp.ta_leg_r, bonetemp.ta_ankle_r, bonetemp.ta_toes_r]
+
+        namespace = bonetemp.name_space
+        for bone_name,bonestr in zip(bone_names,bones):
+
+            if bonestr != "":
+
+                name = namespace + bonestr
+                setattr(bonetemp, bone_name, name)
+
+        bones = [fingtemp.ta_index_a_l,fingtemp.ta_index_b_l,fingtemp.ta_index_c_l,fingtemp.ta_middle_a_l,fingtemp.ta_middle_b_l,fingtemp.ta_middle_c_l,fingtemp.ta_ring_a_l,fingtemp.ta_ring_b_l,fingtemp.ta_ring_c_l,
+            fingtemp.ta_pinky_a_l,fingtemp.ta_pinky_b_l,fingtemp.ta_pinky_c_l,fingtemp.ta_thumb_a_l,fingtemp.ta_thumb_b_l,fingtemp.ta_thumb_c_l,
+            fingtemp.ta_index_a_r,fingtemp.ta_index_b_r,fingtemp.ta_index_c_r,fingtemp.ta_middle_a_r,fingtemp.ta_middle_b_r,fingtemp.ta_middle_c_r,fingtemp.ta_ring_a_r,fingtemp.ta_ring_b_r,fingtemp.ta_ring_c_r,
+            fingtemp.ta_pinky_a_r,fingtemp.ta_pinky_b_r,fingtemp.ta_pinky_c_r,fingtemp.ta_thumb_a_r,fingtemp.ta_thumb_b_r,fingtemp.ta_thumb_c_r]
+ 
+        bone_names = ["ta_index_a_l","ta_index_b_l","ta_index_c_l","ta_middle_a_l","ta_middle_b_l","ta_middle_c_l","ta_ring_a_l","ta_ring_b_l","ta_ring_c_l",
+            "ta_pinky_a_l","ta_pinky_b_l","ta_pinky_c_l","ta_thumb_a_l","ta_thumb_b_l","ta_thumb_c_l",
+            "ta_index_a_r","ta_index_b_r","ta_index_c_r","ta_middle_a_r","ta_middle_b_r","ta_middle_c_r","ta_ring_a_r","ta_ring_b_r","ta_ring_c_r",
+            "ta_pinky_a_r","ta_pinky_b_r","ta_pinky_c_r","ta_thumb_a_r","ta_thumb_b_r","ta_thumb_c_r"]
+
+        for bone_name,bonestr in zip(bone_names,bones):
+
+            if bonestr != "":
+                name = namespace + bonestr
+                setattr(fingtemp, bone_name, name)
+                            
+         
+        return {'FINISHED'}
+
+
 class MK_RetargetOffsetPanel(bpy.types.Panel):
     """Creates a Panel in the Object properties window"""
     bl_label = "Retarget Offset Panel"
@@ -1111,13 +1203,14 @@ class MK_RetargetOffsetPanel(bpy.types.Panel):
             row.prop(conz, "influence")
             column.label(text="offset")
             column.prop(conz, "use_offset")
-                                      
+            
         dolist = [bonetemp.ta_hips,bonetemp.ta_spine,bonetemp.ta_spine1,bonetemp.ta_chest,bonetemp.ta_neck,bonetemp.ta_head,
             bonetemp.ta_shoulder_l,bonetemp.ta_uparm_l,bonetemp.ta_forearm_l,bonetemp.ta_hand_l,
             bonetemp.ta_shoulder_r,bonetemp.ta_uparm_r,bonetemp.ta_forearm_r,bonetemp.ta_hand_r,
             bonetemp.ta_upleg_l,bonetemp.ta_leg_l,bonetemp.ta_ankle_l,bonetemp.ta_toes_l,
-            bonetemp.ta_upleg_r,bonetemp.ta_leg_r,bonetemp.ta_ankle_r,bonetemp.ta_toes_r]   
-        column = layout.column(align=True)                    
+            bonetemp.ta_upleg_r,bonetemp.ta_leg_r,bonetemp.ta_ankle_r,bonetemp.ta_toes_r]
+        column = layout.column(align=True)
+
         for dd in dolist:
             if dd:
                 bone = target_armature.pose.bones[dd]
@@ -1131,10 +1224,20 @@ class MK_RetargetOffsetPanel(bpy.types.Panel):
                             row.prop(con_a, "enabled")                            
                             column.prop(con_a, "influence")
 
-        # Add the influence property of the constraint to the panel
-           
+        for dd in dolist:
+            if dd:
+                bone = target_armature.pose.bones.get("MK_IK_"+dd)
+                if bone:
+                    for con in bone.constraints:
+                        if con.type =="IK":
+                            con_a = con
+                            column = layout.column(align = True)
+                            row = column.row(align=True)
+                            row.label(text="MK_IK_"+dd)
+                            row.prop(con_a, "enabled") 
+                            column.prop(con_a, "pole_angle")
+                            column.prop(con_a, "influence")
 
-    
 
 class MK_SimpleRetargetPanel(bpy.types.Panel):
     """Creates a Panel in the Object properties window"""
@@ -1150,20 +1253,25 @@ class MK_SimpleRetargetPanel(bpy.types.Panel):
         col = layout.column()
         col.prop(props,"source",text="sourceArmature")
         col.prop(props,"target",text="targetArmature")
-        if props.source and props.target:
-            row = layout.row()        
-            row.label(text="bonemapIO")
-            row = layout.row()
+        hips_connect = bpy.context.scene.MK_BoneTemp.ta_hips
+
+        if props.source and props.target:   
+            col.label(text="bonemapIO")
+            row = col.row(align=True)
             #row.prop(files,"file_path")
             row.operator("mkn.json_export")
             row.operator("mkn.json_import")            
             bones = bpy.context.scene.MK_BoneTemp
-            row = layout.row()   
+            row = col.row(align=True)   
             row.operator("mkn.bonemap_lrchange")           
             row.operator("mkn.bonemap_rlchange")
-            row = layout.row()
+            row = col.row(align=True)
             #row.prop(files,"file_path")
-            row.operator("mkn.bone_namecheck")                            
+            row.operator("mkn.bone_namecheck") 
+            row = col.row(align=True)
+            row.prop(bones,"name_space", text="namespace")
+            row.operator("mkn.so_namespace")
+            row.operator("mkn.ta_namespace")
             row = layout.row(align=True)        
             column = row.column(align=True)
             column.label(text="sourceBone")
@@ -1334,7 +1442,10 @@ class MK_SimpleRetargetPanel(bpy.types.Panel):
                 column.prop(fingbones,"ta_thumb_a_r",text="")
                 column.prop(fingbones,"ta_thumb_b_r", text="")
                 column.prop(fingbones,"ta_thumb_c_r",text="")                                                                                                                   
-
+            if props.target.data.bones.get(hips_connect):
+                row = layout.row(align=True)
+                row.label(text="RootConnectStatus:")
+                row.label(text=str(props.target.data.bones[hips_connect].use_connect))
             if context.scene.MK_BoolTemp.ik_bool:
                 row = layout.row()
                 row.label(text= "check wrist and ankle setting")
@@ -1366,11 +1477,16 @@ class MK_SimpleRetargetPanel(bpy.types.Panel):
             else:                                                                                    
                 row = layout.row()        
                 row.operator("mkn.retarget")
-            row = layout.row()   
+
+            row = layout.row()            
+            col = row.column(align=True)
+            row = col.row()   
             row.operator("mkn.clear")
-            row = layout.row()   
+            row = col.row()   
             row.operator("mkn.bake")        
-            row = layout.row()        
+            row = col.row()
+            
+                
 def armature_objects(self, object):
     return object.type == 'ARMATURE'
                                     
@@ -1623,7 +1739,11 @@ class MK_BoneTemp(bpy.types.PropertyGroup):
         description="ta_righttoebase",
         default="RightToeBase"
     )
-    
+    name_space: bpy.props.StringProperty(
+        name="name_space",
+        description="namespace",
+        default=""
+    )
 class MK_FingBoneTemp(bpy.types.PropertyGroup):
     # Index finger bones
     so_index_a_l: bpy.props.StringProperty(name="so_index_a_l", description="so_index_a_l", default="LeftHandIndex1")
@@ -1720,6 +1840,8 @@ class MK_FingBoneTemp(bpy.types.PropertyGroup):
 def register():
     bpy.utils.register_class(jsonImport)    
     bpy.utils.register_class(jsonExport)
+    bpy.utils.register_class(MK_SourceNamespace)
+    bpy.utils.register_class(MK_TargetNamespace)    
     bpy.utils.register_class(MK_RetargetOffsetPanel)
     bpy.utils.register_class(MK_SimpleRetargetPanel)
     bpy.utils.register_class(MK_OT_IKRetarget)    
@@ -1745,6 +1867,8 @@ def register():
 def unregister():
     bpy.utils.unregister_class(jsonImport)        
     bpy.utils.unregister_class(jsonExport)
+    bpy.utils.unregister_class(MK_SourceNamespace)
+    bpy.utils.unregister_class(MK_TargetNamespace)  
     bpy.utils.unregister_class(MK_RetargetOffsetPanel)
     bpy.utils.unregister_class(MK_SimpleRetargetPanel)
     bpy.utils.unregister_class(MK_OT_IKRetarget)
