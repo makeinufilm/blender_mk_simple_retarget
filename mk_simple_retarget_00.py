@@ -683,7 +683,8 @@ class MK_OT_Bake(bpy.types.Operator):
             bonetemp.ta_upleg_r,bonetemp.ta_leg_r,bonetemp.ta_ankle_r,bonetemp.ta_toes_r]
 
         for spb in target_bone_names:
-            target_armature.pose.bones[spb].bone.select = True
+            if target_armature.pose.bones.get(spb):
+                target_armature.pose.bones[spb].bone.select = True
         bpy.ops.nla.bake(frame_start=bpy.context.scene.frame_start,
                         frame_end=bpy.context.scene.frame_end,
                         only_selected=True,
